@@ -95,28 +95,6 @@ class _AuthScreenState extends State<AuthScreen>
               ),
             ),
           ),
-
-//          Container(
-//            child: LayoutBuilder(
-//              builder: (context, constraints) {
-//                print(constraints);
-//                return ConstrainedBox(
-//                  constraints: BoxConstraints(
-//                    maxHeight: constraints.smallest.height,
-//                  ),
-//                  child: TabBarView(
-//                    controller: _tabController,
-//                    physics: NeverScrollableScrollPhysics(),
-//                    children: [
-//                      SingleChildScrollView(child: SignUpTab()),
-//                      SingleChildScrollView(child: LogInTab()),
-//                    ],
-//                  ),
-//                );
-//              },
-//            ),
-//          )
-
           Expanded(
             flex: 2,
             child: LayoutBuilder(
@@ -138,19 +116,6 @@ class _AuthScreenState extends State<AuthScreen>
               },
             ),
           ),
-
-//          Expanded(
-//            flex: 2,
-//            child: TabBarView(
-//              controller: _tabController,
-//              physics: NeverScrollableScrollPhysics(),
-//              children: [
-//                SignUpTab(),
-//                LogInTab(),
-//              ],
-//            ),
-//          ),
-
         ],
       ),
     );
