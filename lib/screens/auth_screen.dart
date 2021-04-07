@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wtt_test_task/widgets/auth/login_tab.dart';
-import 'package:wtt_test_task/widgets/auth/signup_tab.dart';
+import 'package:wtt_test_task/widgets/auth/login/login_tab.dart';
+import 'package:wtt_test_task/widgets/auth/signup/signup_tab.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -99,7 +98,6 @@ class _AuthScreenState extends State<AuthScreen>
             flex: 2,
             child: LayoutBuilder(
               builder: (context, constraints) {
-//                print(constraints.smallest.height);
                 return ConstrainedBox(
                   constraints: BoxConstraints(
                     maxHeight: constraints.smallest.height,

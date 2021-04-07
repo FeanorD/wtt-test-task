@@ -1,6 +1,9 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:wtt_test_task/widgets/auth/text_link.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wtt_test_task/blocs/auth/auth_bloc.dart';
+import 'package:wtt_test_task/widgets/common/gradient_button.dart';
+import 'package:wtt_test_task/widgets/common/text_link.dart';
 
 class LogInForm extends StatefulWidget {
   @override
@@ -13,12 +16,16 @@ class _LogInFormState extends State<LogInForm> {
   String _email = '';
   String _password = '';
 
-  void _logIn() {
+  void _logIn(BuildContext context) {
     final isValid = _formKey.currentState.validate();
     FocusScope.of(context).unfocus();
 
     if (isValid) {
       _formKey.currentState.save();
+      BlocProvider.of<AuthBloc>(context).add(AuthSignInRequested(
+        email: _email,
+        password: _password,
+      ));
     }
   }
 
@@ -78,47 +85,16 @@ class _LogInFormState extends State<LogInForm> {
             },
           ),
           SizedBox(height: 16,),
-//          Container(
-//            width: double.infinity,
-//            decoration: BoxDecoration(
-//              gradient: LinearGradient(
-//                begin: Alignment.topCenter,
-//                end: Alignment.bottomCenter,
-//                colors: [
-//                  Color(0xFFFFA450),
-//                  Color(0xFFE16C00),
-//                ],
-//              ),
-//            ),
-//            child: TextButton(
-//              child: Text('Log in'),
-//              onPressed: () {},
-//            ),
-//          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(0),
+          GradientButton(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color(0xFFFFA450),
+                Color(0xFFE16C00),
+              ],
             ),
-            child: Ink(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 13.5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFFFFA450),
-                    Color(0xFFE16C00),
-                  ],
-                ),
-              ),
-              child: Text(
-                'Log in',
-                textAlign: TextAlign.center,
-              ),
-            ),
-            onPressed: _logIn,
+            onPressed: () => _logIn(context),
           ),
           SizedBox(height: 8,),
           Row(

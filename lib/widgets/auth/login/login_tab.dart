@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wtt_test_task/widgets/auth/custom_divider.dart';
-import 'package:wtt_test_task/widgets/auth/login_form.dart';
-import 'package:wtt_test_task/widgets/auth/social_auth_button_list.dart';
+import 'package:wtt_test_task/widgets/auth/social_auth/social_auth_button_list.dart';
+import 'package:wtt_test_task/widgets/common/custom_divider.dart';
+
+import 'login_form.dart';
 
 class LogInTab extends StatelessWidget {
   @override
